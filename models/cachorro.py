@@ -1,0 +1,17 @@
+from database import db
+
+class Cachorro(db.Model):
+    __tablename__ = "cachorros"
+
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(100), nullable=False)
+    raca = db.Column(db.String(100), nullable=False)
+    idade = db.Column(db.Integer, nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "nome": self.nome,
+            "raca": self.raca,
+            "idade": self.idade
+        }
